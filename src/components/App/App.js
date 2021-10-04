@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OptionsPanel from '../OptionsPanel'
 import Board from '../Board'
+import { createTiles } from '../../misc/utils'
 
 import './App.css';
 
@@ -11,9 +12,20 @@ class App extends Component{
       numTiles: 36,
       playing: false,
       previousTileIndex: null,
-      tile: [],
+      tiles: [],
       toBeCleared: null,
     };
+  }
+
+  startGame(numTiles) {
+    this.setState((state) => {
+      return {
+        playing: true,
+        previousTileIndex: null,
+        toBeCleared: null,
+        tiles: createTiles(state.numTiles)
+      };
+    });
   }
 
 
@@ -24,9 +36,8 @@ class App extends Component{
       <header className="App-header">
         Turbo-Matcher
       </header>
-        <OptionsPanel />
-        <Board />
-      }
+        <OptionsPanel playing={this.state.playing} numTiles={this.state.numTiles}/>
+        <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
     </div>
   );
 
