@@ -9,8 +9,7 @@ const Board = (props) => {
     gridTemplateRows: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
   }
 
-  // #8 problem 
-  const tilesArr = props.tiles.map((tile) => (<Tile tile={...tile}/>));
+  const tilesArr = props.tiles.map((tile) => (<Tile {...tile} />));
 
   return (
     <div className='Board' style={gridConfig}>
