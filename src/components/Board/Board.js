@@ -8,7 +8,7 @@ const Board = (props) => {
     gridTemplateColumns: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
     gridTemplateRows: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
   }
-
+  
   const tilesArr = props.tiles.map((tile) => (<Tile {...tile} />));
 
   return (
