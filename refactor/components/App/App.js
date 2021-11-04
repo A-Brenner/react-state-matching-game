@@ -79,16 +79,17 @@ class App extends Component{
 
 
   render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Turbo-Matcher
-      </header>
-        <OptionsPanel handleNumTileChange={this.handleNumTileChange} playing={this.state.playing} numTiles={this.state.numTiles} startGame={this.startGame}/>
-        <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
-    </div>
-  );
-
+    return (
+      <div className="App">
+        <header className="App-header">
+          Turbo-Matcher
+        </header>
+          <GameContext.Provider value={this.state}>
+            <OptionsPanel handleNumTileChange={this.handleNumTileChange} playing={this.state.playing} numTiles={this.state.numTiles} startGame={this.startGame}/>
+            <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
+          </GameContext.Provider>
+      </div>
+    );
   }
 }
 
