@@ -1,7 +1,7 @@
 import React from 'react'
 import useHover from '../../hooks'
 import './TileSelector.css'
-import GameContext from '../../../refactor/GameContext'
+import GameContext from '../../GameContext'
 
 const TileSelector = (props) => {
 
@@ -22,7 +22,7 @@ const TileSelector = (props) => {
         <div className='tileSelector'>
           <div>Number of Tiles</div>
           <div className='tileSelectorDropdown' ref={ref}>
-            {props.numTiles}
+            {numTiles}
             {hovered ? dropdown : null}
           </div>
         </div>
