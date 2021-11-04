@@ -85,9 +85,10 @@ class App extends Component{
       <header className="App-header">
         Turbo-Matcher
       </header>
-        <GameContext.Provider/>
+        <GameContext.Provider value={this.state}>
           <OptionsPanel handleNumTileChange={this.handleNumTileChange} playing={this.state.playing} numTiles={this.state.numTiles} startGame={this.startGame}/>
           <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
+        </GameContext.Provider>
     </div>
   );
 
